@@ -73,4 +73,5 @@ def get_portfolio_stats():
 
 if __name__ == '__main__':
     # Start the Flask server
-    app.run(debug=os.getenv('FLASK_ENV') == 'development', port=5010) 
+    port = int(os.getenv('PORT', 5010))
+    app.run(debug=os.getenv('FLASK_ENV') == 'development', host='0.0.0.0', port=port) 
