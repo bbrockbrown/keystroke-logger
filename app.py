@@ -2,7 +2,10 @@ from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 import sqlite3
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app, origins=['http://localhost:3000', 'http://localhost:5173', os.getenv('FLASK_WEBSITE')])  # Add your portfolio domain
