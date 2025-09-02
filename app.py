@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 import sqlite3
 from datetime import datetime, timedelta
@@ -8,9 +8,7 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, origins=['http://localhost:3000', 'http://localhost:5173', os.getenv('FLASK_WEBSITE')])  # Add your portfolio domain
-
-# The keystroke daemon should now be running automatically (you can check with launchctl list | grep keystroke)
+CORS(app, origins=['http://localhost:3000', 'http://localhost:5173', os.getenv('FLASK_WEBSITE')]) 
 
 def get_total_keystrokes():
     try:
@@ -63,10 +61,14 @@ def get_today_keystrokes():
 
 @app.route('/api/keystrokes')
 def get_keystrokes():
+    origin = request.headers.get('Origin', 'No origin')
+    print(f"[KEYSTROKES] Request from origin: {origin}")
     return jsonify({'total_keystrokes': get_total_keystrokes()})
 
 @app.route('/api/portfolio-stats')
 def get_portfolio_stats():
+    origin = request.headers.get('Origin', 'No origin')
+    print(f"[PORTFOLIO] Request from origin: {origin}")
     return jsonify({
         'total_keystrokes': get_total_keystrokes(),
         'today_keystrokes': get_today_keystrokes(),
