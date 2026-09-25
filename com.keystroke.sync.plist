@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.keystroke.tracker</string>
+    <string>com.keystroke.sync</string>
     <key>ProgramArguments</key>
     <array>
         <string>/Users/brockbrown/Desktop/projects/personal/keystroke-counter/.venv/bin/python</string>
-        <string>/Users/brockbrown/Desktop/projects/personal/keystroke-counter/keystroke_daemon.py</string>
+        <string>/Users/brockbrown/Desktop/projects/personal/keystroke-counter/sync.py</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
-    <key>KeepAlive</key>
-    <true/>
-    <key>ThrottleInterval</key>
-    <integer>30</integer>
+    <key>StartInterval</key>
+    <integer>300</integer>
     <key>WorkingDirectory</key>
     <string>/Users/brockbrown/Desktop/projects/personal/keystroke-counter</string>
     <key>StandardOutPath</key>
-    <string>/Users/brockbrown/Desktop/projects/personal/keystroke-counter/launchd_tracker.log</string>
+    <string>/Users/brockbrown/Desktop/projects/personal/keystroke-counter/sync.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/brockbrown/Desktop/projects/personal/keystroke-counter/launchd_tracker.log</string>
+    <string>/Users/brockbrown/Desktop/projects/personal/keystroke-counter/sync.log</string>
 </dict>
 </plist>
